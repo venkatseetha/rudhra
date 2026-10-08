@@ -1,0 +1,11 @@
+#!/bin/bash
+
+LOGFILE=/usr/local/etc/backups/test14.log
+
+(
+    echo "$(date "+%m%d%Y %T") : Starting work"
+    ... more commands ...
+    echo error 1>&2 # test stderr
+
+    echo "$(date "+%m%d%Y %T") : Done"
+) >& $LOGFILE
